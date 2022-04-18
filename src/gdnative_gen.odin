@@ -4,6 +4,7 @@ import "shared:odin-binding-generator/bindgen"
 
 main :: proc() {
     options: bindgen.GeneratorOptions
+    options.mode = "odin"
 
     options.definePrefixes = []string{"GODOT_", "GDNATIVE_"}
     options.defineCase = .Camel
