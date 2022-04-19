@@ -13,7 +13,7 @@ net_api: ^gdn.GdnativeExtNetApiStruct
 ps_api: ^gdn.GdnativeExtPluginscriptApiStruct
 video_api: ^gdn.GdnativeExtVideodecoderApiStruct
 
-init_api :: proc(options: ^GdnativeInitOptions) {
+init_api :: proc "contextless" (options: ^GdnativeInitOptions) {
     core_api := options.api_struct
     for i in 0..<core_api.num_extensions {
         extension: ^gdn.GdnativeApiStruct = mem.ptr_offset(core_api.extensions, i)^
@@ -27,4 +27,14 @@ init_api :: proc(options: ^GdnativeInitOptions) {
             case .GdnativeExtVideodecoder: video_api = transmute(^gdn.GdnativeExtVideodecoderApiStruct)extension
         }
     }
+}
+
+terminate_api :: proc "contextless" (options: ^GdnativeInitOptions) {
+    core_api = nil
+    ns_api = nil
+    android_api = nil
+    arvr_api = nil
+    net_api = nil
+    ps_api = nil
+    video_api = nil
 }
