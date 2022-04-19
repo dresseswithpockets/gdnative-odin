@@ -4,7 +4,7 @@ Check out the [demo](https://github.com/dresseswithpockets/gdnative-odin/blob/ma
 
 This binding is roughly 1-to-1 with the C API, but all `godot_xx_` function prefixes have been removed. There are also some helper methods in `gdnative_helper.odin`.
 
-The binding is very much a work in progress! There are bound to be missing features and bugs.
+The binding is very much a work in progress! There are bound to be missing features and bugs. Feel free to post an issue if you're having problems with the binding.
 
 ## Getting Started
 
@@ -39,7 +39,7 @@ godot_gdnative_terminate :: proc "c" (options: ^gd.GdnativeInitOptions) {
 }
 ```
 
-## Known Bugs
+## Known Issues
 
 ### Segfaults on Linux when attempting to instance a registered class.
 
